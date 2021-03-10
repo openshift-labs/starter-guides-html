@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script src="jquery/jquery.min.js"></script>
+  <script src="popper/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="requirejs/require.js"></script>
+  <script>var workshop_base_url = "/user/user3/workshop";</script>
+  
+  <link rel="stylesheet" href="asciidoctor/css/asciidoctor.css">
+  
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/workshop.css">
+  <link rel="stylesheet" href="css/workshop-asciidoc.css">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135921114-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "UA-135921114-11");
+</script>
+
+</head>
+</body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="" class="logo">Starter Labs (Java)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 d-sm-block d-none">
+        <!-- Table of Contents -->
+        <ul class="menu">
+          <li class="category">
+            <ul class="modules">
+              <h5 class="category-title">Workshop Modules</h5>
+              
+                
+                  <li class="page"><a href="common-workshop-summary.html">Workshop Summary</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-environment.html">Environment Overview</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-using-homeroom.html">Using Homeroom</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-parksmap-architecture.html">Architecture Overview of the ParksMap Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-explore.html">Exploring the CLI and Web Console</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-container-image.html">Deploying Your First Container Image</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-scaling.html">Scaling and Self Healing</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-routes.html">Exposing Your Application to the Outside World</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-logging.html">Exploring OpenShift's Logging Capabilities</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-permissions.html">Role-Based Access Control</a></li>
+                
+              
+                
+                  <li class="page active"><a href="parksmap-rsh.html">Remote Access to Your Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java.html">Deploying Java Code</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-databases.html">Adding a Database (MongoDB)</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-application-health.html">Application Health</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline.html">Automate Build and Deployment with Pipelines</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline-codechanges-gogs.html">Automation for Your Application on Code Changes</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-templates.html">Using Application Templates</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-binary-build.html">Binary Builds for Day to Day Development</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-further-resources.html">Further Resources</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-workshop-links.html">Workshop Links</a></li>
+                
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-9">
+        <section class="page-content">
+          <!-- Top Navigation -->
+          <div class="btn-group btn-group-xs float-right">
+            
+              <button type="button" onclick="location.href='parksmap-permissions';" class="btn btn-xs btn-transparent" aria-label="Prev">
+                <span class="fas fa-arrow-left" aria-hidden="true"></span>
+              </button>
+            
+            <button type="button" onclick="location.href='';" class="btn btn-xs btn-transparent" aria-label="Home">
+              <span class="fas fa-home" aria-hidden="true"></span>
+            </button>
+            
+              <button type="button" onclick="location.href='nationalparks-java';" class="btn btn-xs btn-transparent" aria-label="Next">
+                <span class="fas fa-arrow-right" aria-hidden="true"></span>
+              </button>
+            
+          </div>
+          <!-- Title -->
+          
+            <h1 class="title">Remote Access to Your Application</h1>
+          
+          <!-- Content -->
+          <div class="paragraph">
+<p>Containers are treated as immutable infrastructure and therefore it is generally
+not recommended to modify the content of a container through SSH or running custom
+commands inside the container. Nevertheless, in some use-cases, such as debugging
+an application, it might be beneficial to get into a container and inspect the
+application.</p>
+</div>
+<div class="sect1">
+<h2 id="_exercise_remote_shell_session_to_a_container_using_the_cli">Exercise: Remote Shell Session to a Container Using the CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift allows establishing remote shell sessions to a container without the
+need to run an SSH service inside each container. In order to establish an
+interactive session inside a container, you can use the <code>oc rsh</code> command. First
+get the list of available pods:</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc get pods</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should an output similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">NAME                        READY   STATUS    RESTARTS   AGE
+parksmap-65c4f8b676-fxcrq   1/1     Running   0          52m</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can establish a remote shell session into the pod by using the pod name:</p>
+</div>
+<div class="listingblock copy-and-edit">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc rsh parksmap-65c4f8b676-fxcrq</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You would see the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sh-4.2$</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The default shell used by <code>oc rsh</code> is <code>/bin/sh</code>. If the deployed container does
+not have <strong>sh</strong> installed and uses another shell, (e.g. <strong>A Shell</strong>) the shell command
+can be specified after the pod name in the issued command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Run the following command to list the files in the top folder:</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">ls /</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">anaconda-post.log  bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  parksmap.jar  proc  root  run  sbin  srv  sys  tmp  usr  var</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercise_remote_shell_session_to_a_container_using_the_web_console">Exercise: Remote Shell Session to a Container Using the Web Console</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The OpenShift Web Console also provides a convenient way to access a terminal session on the container without having to use the CLI.</p>
+</div>
+<div class="paragraph">
+<p>In order to access a pod&#8217;s terminal via the Web Console, go to the Topology view in the Developer Perspective, click the <code>parksmap</code> entry, and then click on the <strong>Pod</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/parksmap-rsh-dev-console-pod.png" alt="Pod in Dev Console">
+</div>
+</div>
+<div class="paragraph">
+<p>Once you are viewing the information for the selected pod, click on the <strong>Terminal</strong> tab to open up a shell session.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/parksmap-rsh-applications-pods-terminal.png" alt="Pod List">
+</div>
+</div>
+<div class="paragraph">
+<p>Go ahead and execute the same commands you did when using the CLI to see how the Web Console based terminal behaves.</p>
+</div>
+<div class="paragraph">
+<p>Before proceeding, close the connection to the pod.</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">exit</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercise_execute_a_command_in_a_container">Exercise: Execute a Command in a Container</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to remote shell, it is also possible to run a command remotely in an
+already running container using the <code>oc exec</code> command. This does not require
+that a shell is installed, but only that the desired command is present and in
+the executable path.</p>
+</div>
+<div class="paragraph">
+<p>In order to show just the JAR file, run the following:</p>
+</div>
+<div class="listingblock copy-and-edit">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc exec parksmap-2-mcjsw -- ls -l /parksmap.jar</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You would see something like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">-rw-r--r--. 1 root root 39138901 Apr  1 16:54 /parksmap.jar</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>--</code> syntax in the <code>oc exec</code> command delineates where exec&#8217;s options
+end and where the actual command to execute begins. Take a look at <code>oc exec
+--help</code> for more details.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also specify the shell commands to run directly with the <strong>oc rsh</strong> command:</p>
+</div>
+<div class="listingblock copy-and-edit">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc rsh parksmap-2-mcjsw whoami</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You would see something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">1000580000</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is important to understand that, for security reasons, OpenShift does not run containers as the user specified in the Dockerfile by default. In fact,
+when OpenShift launches a container its user is actually randomized.</p>
+</div>
+<div class="paragraph">
+<p>If you want or need to allow OpenShift users to deploy container images that do
+expect to run as root (or any specific user), a small configuration change is
+needed. You can learn more about the
+<a href="https://docs.openshift.com/container-platform/latest/openshift_images/create-images.html#images-create-guide-general_create-images">container image guidelines</a>
+for OpenShift.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+          <!-- Bottom Navigation -->
+          <div class="page-meta clearfix">
+            
+              
+                <input type="button" class="btn btn-lg btn-primary float-right" onclick="location.href='nationalparks-java';" value="Continue" />
+              
+            
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+  </footer>
+  <!-- Javascript-->
+  <script src="js/workshop.js"></script>
+  <script src="js/workshop-asciidoc.js"></script>
+</body>
+</html>

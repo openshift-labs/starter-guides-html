@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script src="jquery/jquery.min.js"></script>
+  <script src="popper/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="requirejs/require.js"></script>
+  <script>var workshop_base_url = "/user/user3/workshop";</script>
+  
+  <link rel="stylesheet" href="asciidoctor/css/asciidoctor.css">
+  
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/workshop.css">
+  <link rel="stylesheet" href="css/workshop-asciidoc.css">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135921114-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "UA-135921114-11");
+</script>
+
+</head>
+</body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="" class="logo">Starter Labs (Java)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 d-sm-block d-none">
+        <!-- Table of Contents -->
+        <ul class="menu">
+          <li class="category">
+            <ul class="modules">
+              <h5 class="category-title">Workshop Modules</h5>
+              
+                
+                  <li class="page"><a href="common-workshop-summary.html">Workshop Summary</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-environment.html">Environment Overview</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-using-homeroom.html">Using Homeroom</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-parksmap-architecture.html">Architecture Overview of the ParksMap Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-explore.html">Exploring the CLI and Web Console</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-container-image.html">Deploying Your First Container Image</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-scaling.html">Scaling and Self Healing</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-routes.html">Exposing Your Application to the Outside World</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-logging.html">Exploring OpenShift's Logging Capabilities</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-permissions.html">Role-Based Access Control</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-rsh.html">Remote Access to Your Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java.html">Deploying Java Code</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-databases.html">Adding a Database (MongoDB)</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-application-health.html">Application Health</a></li>
+                
+              
+                
+                  <li class="page active"><a href="nationalparks-java-pipeline.html">Automate Build and Deployment with Pipelines</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline-codechanges-gogs.html">Automation for Your Application on Code Changes</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-templates.html">Using Application Templates</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-binary-build.html">Binary Builds for Day to Day Development</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-further-resources.html">Further Resources</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-workshop-links.html">Workshop Links</a></li>
+                
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-9">
+        <section class="page-content">
+          <!-- Top Navigation -->
+          <div class="btn-group btn-group-xs float-right">
+            
+              <button type="button" onclick="location.href='nationalparks-java-application-health';" class="btn btn-xs btn-transparent" aria-label="Prev">
+                <span class="fas fa-arrow-left" aria-hidden="true"></span>
+              </button>
+            
+            <button type="button" onclick="location.href='';" class="btn btn-xs btn-transparent" aria-label="Home">
+              <span class="fas fa-home" aria-hidden="true"></span>
+            </button>
+            
+              <button type="button" onclick="location.href='nationalparks-java-pipeline-codechanges-gogs';" class="btn btn-xs btn-transparent" aria-label="Next">
+                <span class="fas fa-arrow-right" aria-hidden="true"></span>
+              </button>
+            
+          </div>
+          <!-- Title -->
+          
+            <h1 class="title">Automate Build and Deployment with Pipelines</h1>
+          
+          <!-- Content -->
+          <div class="paragraph">
+<p>In this lab you will learn about pipelines and how to configure a pipeline in OpenShift so
+that it will take care of the application lifecycle.</p>
+</div>
+<div class="sect1">
+<h2 id="_background_continuous_integration_and_pipelines">Background: Continuous Integration and Pipelines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A continuous delivery (CD) pipeline is an automated expression of your process for getting software
+from version control right through to your users and customers.
+Every change to your software (committed in source control) goes through a complex process on
+its way to being released. This process involves building the software in a reliable and repeatable
+manner, as well as progressing the built software (called a "build") through multiple stages of
+testing and deployment.</p>
+</div>
+<div class="paragraph">
+<p>OpenShift Pipelines is a cloud-native, continuous integration and delivery (CI/CD) solution for building pipelines using <a href="https://tekton.dev/">Tekton</a>. Tekton is a flexible, Kubernetes-native, open-source CI/CD framework that enables automating deployments across multiple platforms (Kubernetes, serverless, VMs, etc) by abstracting away the underlying details.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-flow.png" alt="Pipelines">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_tekton">Understanding Tekton</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tekton defines a number of <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">Kubernetes custom resources</a> as building blocks in order to standardize pipeline concepts and provide a terminology that is consistent across CI/CD solutions.</p>
+</div>
+<div class="paragraph">
+<p>The custom resources needed to define a pipeline are listed below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Task</code>: a reusable, loosely coupled number of steps that perform a specific task (e.g. building a container image)</p>
+</li>
+<li>
+<p><code>Pipeline</code>: the definition of the pipeline and the <code>Tasks</code> that it should perform</p>
+</li>
+<li>
+<p><code>TaskRun</code>: the execution and result of running an instance of task</p>
+</li>
+<li>
+<p><code>PipelineRun</code>: the execution and result of running an instance of pipeline, which includes a number of <code>TaskRuns</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tekton-architecture.png" alt="Tekton Architecture">
+</div>
+</div>
+<div class="paragraph">
+<p>In short, in order to create a pipeline, one does the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create custom or install <a href="https://github.com/tektoncd/catalog">existing</a> reusable <code>Tasks</code></p>
+</li>
+<li>
+<p>Create a <code>Pipeline</code> and <code>PipelineResources</code> to define your application&#8217;s delivery pipeline</p>
+</li>
+<li>
+<p>Create a <code>PersistentVolumeClaim</code> to provide the volume/filesystem for pipeline execution or provide a <code>VolumeClaimTemplate</code> which creates a <code>PersistentVolumeClaim</code></p>
+</li>
+<li>
+<p>Create a <code>PipelineRun</code> to instantiate and invoke the pipeline</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For further details on pipeline concepts, refer to the <a href="https://github.com/tektoncd/pipeline/tree/master/docs#learn-more">Tekton documentation</a> that provides an excellent guide for understanding various parameters and attributes available for defining pipelines.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_your_pipeline">Create Your Pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As pipelines provide the ability to promote applications between different stages of the delivery cycle, Tekton, which is our Continuous Integration server that will execute our pipelines, will be deployed on a project with a Continuous Integration role. Pipelines executed in this project will have permissions to interact with all the projects modeling the different stages of our delivery cycle.</p>
+</div>
+<div class="paragraph">
+<p>For this example, we&#8217;re going to deploy our pipeline which is stored in the same Gogs repository where we have our code. In a more real scenario, and in order to honor <a href="https://en.wikipedia.org/wiki/Infrastructure_as_Code">infrastructure as code</a> principles, we would store all the pipeline definitions along with every OpenShift resources definitions we would use.</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">oc create -f http://gogs-labs.apps.cluster-test-efcf.test-efcf.example.opentlc.com/user3/nationalparks/raw/master/pipeline/nationalparks-pipeline-all-new.yaml -n user3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify the Tasks you created:</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">oc get tasks -n user3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see something similar:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">NAME                 AGE
+redeploy             13s
+s2i-java-11-binary   13s</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Verify the Pipeline you created:</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">oc get pipelines -n user3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">NAME                     AGE
+nationalparks-pipeline   8s</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s review our Tekton Pipeline:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: nationalparks-pipeline
+spec:
+  params:
+    - default: nationalparks
+      description: The application name
+      name: APP_NAME
+      type: string
+    - default: 'https://github.com/openshift-roadshow/nationalparks.git'
+      description: The application git repository url
+      name: APP_GIT_URL
+      type: string
+    - default: master
+      description: The application git repository revision
+      name: APP_GIT_REVISION
+      type: string
+  tasks:
+    - name: git-clone
+      params:
+        - name: url
+          value: $(params.APP_GIT_URL)
+        - name: revision
+          value: $(params.APP_GIT_REVISION)
+        - name: submodules
+          value: 'true'
+        - name: depth
+          value: '1'
+        - name: sslVerify
+          value: 'true'
+        - name: deleteExisting
+          value: 'true'
+      taskRef:
+        kind: ClusterTask
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: app-source
+    - name: build-and-test
+      params:
+        - name: GOALS
+          value:
+            - package
+        - name: PROXY_PROTOCOL
+          value: http
+      runAfter:
+        - git-clone
+      taskRef:
+        kind: ClusterTask
+        name: maven
+      workspaces:
+        - name: source
+          workspace: app-source
+        - name: maven-settings
+          workspace: maven-settings
+    - name: build-image
+      params:
+        - name: PATH_CONTEXT
+          value: .
+        - name: TLSVERIFY
+          value: 'false'
+        - name: OUTPUT_IMAGE_STREAM
+          value: '$(params.APP_NAME):latest'
+      runAfter:
+        - build-and-test
+      taskRef:
+        kind: Task
+        name: s2i-java-11-binary
+      workspaces:
+        - name: source
+          workspace: app-source
+    - name: redeploy
+      params:
+        - name: DEPLOYMENT_CONFIG
+          value: $(params.APP_NAME)
+        - name: IMAGE_STREAM
+          value: '$(params.APP_NAME):latest'
+      runAfter:
+        - build-image
+      taskRef:
+        kind: Task
+        name: redeploy
+  workspaces:
+    - name: app-source
+    - name: maven-settings</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A <code>Pipeline</code> is a user-defined model of a CD pipeline. A Pipeline’s code defines your entire build process, which typically includes stages for building an application, testing it and then delivering it.</p>
+</div>
+<div class="paragraph">
+<p>A <code>Task</code> and a <code>ClusterTask</code> contain some step to be executed. <strong>ClusterTasks</strong> are available to all user within a cluster where OpenShift Pipelines has been installed, while <strong>Tasks</strong> can be custom.</p>
+</div>
+<div class="paragraph">
+<p>This pipeline has 4 Tasks defined:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>git clone</strong>: this is a <code>ClusterTask</code> that will clone our source repository for nationalparks and store it to a <code>Workspace</code> <code>app-source</code> which will use the PVC created for it <code>app-source-workspace</code></p>
+</li>
+<li>
+<p><strong>build-and-test</strong>: will build and test our Java application using <code>maven</code> <code>ClusterTask</code></p>
+</li>
+<li>
+<p><strong>build-image</strong>: will build an image using a binary file as input in OpenShift. The build will use the .jar file that was created and a custom Task for it <code>s2i-java11-binary</code></p>
+</li>
+<li>
+<p><strong>redeploy</strong>: it will deploy the created image on OpenShift using the Deployment named <code>nationalparks</code> we created in the previous lab, using the custom Task <code>redeploy</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>From left-side menu, click on <strong>Pipeline</strong>, then click on <strong>nationalparks-pipeline</strong> to see the pipeline you just created.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-created.png" alt="Pipeline created">
+</div>
+</div>
+<div class="paragraph">
+<p>The Pipeline is parametric, with default value on the one we need to use.</p>
+</div>
+<div class="paragraph">
+<p>It is using two <strong>Workspace</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>app-source</strong>: linked to a <strong>PersistentVolumeClaim</strong> <code>app-source-pvc</code> created from the YAML template we used in previous command. This will be used to store the artifact to be used in different <strong>Task</strong></p>
+</li>
+<li>
+<p><strong>maven-settings</strong>: an <strong>EmptyDir</strong> volume for the maven cache, this can be extended also with a PVC to make subsequent Maven builds faster</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_the_pipeline">Run the Pipeline</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We can start now the Pipeline from the Web Console. From left-side menu, click on <strong>Pipeline</strong>, then click on <strong>nationalparks-pipeline</strong>. From top-right <strong>Actions</strong> list, click on <strong>Start</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-start-1.png" alt="Start Pipeline">
+</div>
+</div>
+<div class="paragraph">
+<p>You will be prompted with parameters to add the Pipeline, showing default ones.</p>
+</div>
+<div class="paragraph">
+<p>Add in <strong>APP_GIT_URL</strong> the <code>nationalparks</code> repository you have in Gogs:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlight"><code>http://gogs-labs.apps.cluster-test-efcf.test-efcf.example.opentlc.com/user3/nationalparks.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <strong>Workspaces</strong>&#8594; <strong>app-source</strong> select <strong>PVC</strong> from the list, then select <strong>app-source-pvc</strong>. This is the shared volume used by Pipeline Tasks in your Pipeline containing the source code and compiled artifacts.</p>
+</div>
+<div class="paragraph">
+<p>Click on <strong>Start</strong> to run your Pipeline.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-start-2.png" alt="Add parameters">
+</div>
+</div>
+<div class="paragraph">
+<p>You can follow the Pipeline execution from <strong>Pipeline</strong> section, watching all the steps in progress. Click on <strong>Pipeline Runs</strong> tab to see it running:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-run-1.png" alt="Pipeline running">
+</div>
+</div>
+<div class="paragraph">
+<p>The click on the <code>PipelineRun</code> <strong>national-parks-deploy-run-</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-run-java-2.png" alt="Pipeline running animation">
+</div>
+</div>
+<div class="paragraph">
+<p>Then click on the <strong>Task</strong> running to check logs:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-run-java-3.png" alt="Pipeline Task log">
+</div>
+</div>
+<div class="paragraph">
+<p>Verify PipelineRun has been completed with success:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/devops-pipeline-run-java-4.png" alt="PipelineRun completed">
+</div>
+</div>
+</div>
+</div>
+          <!-- Bottom Navigation -->
+          <div class="page-meta clearfix">
+            
+              
+                <input type="button" class="btn btn-lg btn-primary float-right" onclick="location.href='nationalparks-java-pipeline-codechanges-gogs';" value="Continue" />
+              
+            
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+  </footer>
+  <!-- Javascript-->
+  <script src="js/workshop.js"></script>
+  <script src="js/workshop-asciidoc.js"></script>
+</body>
+</html>

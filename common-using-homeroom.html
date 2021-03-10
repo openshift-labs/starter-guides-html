@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script src="jquery/jquery.min.js"></script>
+  <script src="popper/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="requirejs/require.js"></script>
+  <script>var workshop_base_url = "/user/user3/workshop";</script>
+  
+  <link rel="stylesheet" href="asciidoctor/css/asciidoctor.css">
+  
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/workshop.css">
+  <link rel="stylesheet" href="css/workshop-asciidoc.css">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135921114-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "UA-135921114-11");
+</script>
+
+</head>
+</body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="" class="logo">Starter Labs (Java)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 d-sm-block d-none">
+        <!-- Table of Contents -->
+        <ul class="menu">
+          <li class="category">
+            <ul class="modules">
+              <h5 class="category-title">Workshop Modules</h5>
+              
+                
+                  <li class="page"><a href="common-workshop-summary.html">Workshop Summary</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-environment.html">Environment Overview</a></li>
+                
+              
+                
+                  <li class="page active"><a href="common-using-homeroom.html">Using Homeroom</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-parksmap-architecture.html">Architecture Overview of the ParksMap Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-explore.html">Exploring the CLI and Web Console</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-container-image.html">Deploying Your First Container Image</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-scaling.html">Scaling and Self Healing</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-routes.html">Exposing Your Application to the Outside World</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-logging.html">Exploring OpenShift's Logging Capabilities</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-permissions.html">Role-Based Access Control</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-rsh.html">Remote Access to Your Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java.html">Deploying Java Code</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-databases.html">Adding a Database (MongoDB)</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-application-health.html">Application Health</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline.html">Automate Build and Deployment with Pipelines</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline-codechanges-gogs.html">Automation for Your Application on Code Changes</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-templates.html">Using Application Templates</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-binary-build.html">Binary Builds for Day to Day Development</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-further-resources.html">Further Resources</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-workshop-links.html">Workshop Links</a></li>
+                
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-9">
+        <section class="page-content">
+          <!-- Top Navigation -->
+          <div class="btn-group btn-group-xs float-right">
+            
+              <button type="button" onclick="location.href='common-environment';" class="btn btn-xs btn-transparent" aria-label="Prev">
+                <span class="fas fa-arrow-left" aria-hidden="true"></span>
+              </button>
+            
+            <button type="button" onclick="location.href='';" class="btn btn-xs btn-transparent" aria-label="Home">
+              <span class="fas fa-home" aria-hidden="true"></span>
+            </button>
+            
+              <button type="button" onclick="location.href='common-parksmap-architecture';" class="btn btn-xs btn-transparent" aria-label="Next">
+                <span class="fas fa-arrow-right" aria-hidden="true"></span>
+              </button>
+            
+          </div>
+          <!-- Title -->
+          
+            <h1 class="title">Using Homeroom</h1>
+          
+          <!-- Content -->
+          <div class="paragraph">
+<p>Access to the workshop is provided by <a href="https://github.com/openshift-homeroom">Homeroom</a>, an interactive training environment you can use in your web browser without needing to install anything on your local machine.</p>
+</div>
+<div class="paragraph">
+<p>The Homeroom dashboard provides you access to the workshop content and one or more terminals.</p>
+</div>
+<div class="paragraph">
+<p>The interactive shells are hosted in a container running inside of OpenShift. Any special command line programs you need are already pre-installed.</p>
+</div>
+<div class="paragraph">
+<p>As you work through the workshop content you will encounter commands that you need to run in the terminals. These will appear as:</p>
+</div>
+<div class="listingblock execute-1">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">date</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where a command appears like this with the play symbol <span class="fas fa-play-circle"></span> to the right side of the command, you do not need to type the command into the terminal yourself. Instead, click anywhere on the command and it will be run automatically in the terminal for you.</p>
+</div>
+<div class="paragraph">
+<p>Try clicking on the above command if you have not done so already.</p>
+</div>
+<div class="paragraph">
+<p>Use this method of running the commands as it will save you time and avoid mistakes.</p>
+</div>
+<div class="paragraph">
+<p>Usually the command will be run in the terminal at the top, but in some cases it will be run in the bottom terminal. You do not have to worry about which, the command when clicked will be run where it needs to be.</p>
+</div>
+<div class="paragraph">
+<p>Try clicking the command below and it should go the terminal at the bottom.</p>
+</div>
+<div class="listingblock execute-2">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">sleep 3600</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you encounter a command block showing <code>&lt;ctrl-c&gt;</code>, this is treated in a special way:</p>
+</div>
+<div class="listingblock execute-2">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">&lt;ctrl-c&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Click on this and you will see that it will send an interrupt to the command running in the terminal. You could also have used <code>&lt;ctrl-c&gt;</code> yourself in the terminal.</p>
+</div>
+<div class="paragraph">
+<p>At times, instead of running a command, you may need to copy the value and paste it into the terminal or other web page. This will be indicated using the copy symbol <span class="fas fa-copy"></span>.</p>
+</div>
+<div class="listingblock copy">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">user3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Clicking on the displayed value in this case will copy it into the system paste buffer ready to paste to whatever location the workshop instructions tell you to.</p>
+</div>
+<div class="paragraph">
+<p>Usually the workshop content will display the correct command or value, even if based on your user name or the name of the project you are using. This is because you will get a personalised version of the workshop content.</p>
+</div>
+<div class="paragraph">
+<p>If when copying the value, you need to first edit the value before being used, this will be indicated using the user edit symbol <span class="fas fa-user-edit"></span>.</p>
+</div>
+<div class="listingblock copy-and-edit">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">change-this-to-your-username</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Clicking on the displayed value will again copy it into the system paste buffer and you can then paste it to the required location. Before the value is used though, you should make any changes as instructed.</p>
+</div>
+<div class="paragraph">
+<p>How to paste a value into the terminals will depend on the operating system and browser being used. For macOS you should be able to use <code>&lt;command-v&gt;</code>. On Linux and Windows, try <code>&lt;ctrl-v&gt;</code> or <code>&lt;ctrl-shift-v&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>If at any time a glitch occurs and the workshop content does not display properly because of a network issue, and so an error is displayed, or it shows as a white page, select the dropdown hamburger menu top right in the banner above the terminals and select "Reload Workshop". That menu item will reload just the workshop content and leave you on the same page.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, if the terminals stop working or show as closed, select "Reload Terminal" from the dropdown hamburger menu.</p>
+</div>
+<div class="paragraph">
+<p>Do not use the ability of the browser to reload the whole browser page as you will lose your progress in the workshop content. Also do not use the "Restart Session" menu item unless specifically directed to as you will lose all your work.</p>
+</div>
+<div class="paragraph">
+<p>If you have any issues which using the reload menu items do not solve, ask the workshop instructor.</p>
+</div>
+          <!-- Bottom Navigation -->
+          <div class="page-meta clearfix">
+            
+              
+                <input type="button" class="btn btn-lg btn-primary float-right" onclick="location.href='common-parksmap-architecture';" value="Start Workshop" />
+              
+            
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+  </footer>
+  <!-- Javascript-->
+  <script src="js/workshop.js"></script>
+  <script src="js/workshop-asciidoc.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <script src="jquery/jquery.min.js"></script>
+  <script src="popper/popper.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="requirejs/require.js"></script>
+  <script>var workshop_base_url = "/user/user3/workshop";</script>
+  
+  <link rel="stylesheet" href="asciidoctor/css/asciidoctor.css">
+  
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/workshop.css">
+  <link rel="stylesheet" href="css/workshop-asciidoc.css">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135921114-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "UA-135921114-11");
+</script>
+
+</head>
+</body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="" class="logo">Starter Labs (Java)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 d-sm-block d-none">
+        <!-- Table of Contents -->
+        <ul class="menu">
+          <li class="category">
+            <ul class="modules">
+              <h5 class="category-title">Workshop Modules</h5>
+              
+                
+                  <li class="page"><a href="common-workshop-summary.html">Workshop Summary</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-environment.html">Environment Overview</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-using-homeroom.html">Using Homeroom</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-parksmap-architecture.html">Architecture Overview of the ParksMap Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-explore.html">Exploring the CLI and Web Console</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-container-image.html">Deploying Your First Container Image</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-scaling.html">Scaling and Self Healing</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-routes.html">Exposing Your Application to the Outside World</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-logging.html">Exploring OpenShift's Logging Capabilities</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-permissions.html">Role-Based Access Control</a></li>
+                
+              
+                
+                  <li class="page"><a href="parksmap-rsh.html">Remote Access to Your Application</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java.html">Deploying Java Code</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-databases.html">Adding a Database (MongoDB)</a></li>
+                
+              
+                
+                  <li class="page active"><a href="nationalparks-java-application-health.html">Application Health</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline.html">Automate Build and Deployment with Pipelines</a></li>
+                
+              
+                
+                  <li class="page"><a href="nationalparks-java-pipeline-codechanges-gogs.html">Automation for Your Application on Code Changes</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-templates.html">Using Application Templates</a></li>
+                
+              
+                
+                  <li class="page"><a href="mlbparks-binary-build.html">Binary Builds for Day to Day Development</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-further-resources.html">Further Resources</a></li>
+                
+              
+                
+                  <li class="page"><a href="common-workshop-links.html">Workshop Links</a></li>
+                
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-9">
+        <section class="page-content">
+          <!-- Top Navigation -->
+          <div class="btn-group btn-group-xs float-right">
+            
+              <button type="button" onclick="location.href='nationalparks-java-databases';" class="btn btn-xs btn-transparent" aria-label="Prev">
+                <span class="fas fa-arrow-left" aria-hidden="true"></span>
+              </button>
+            
+            <button type="button" onclick="location.href='';" class="btn btn-xs btn-transparent" aria-label="Home">
+              <span class="fas fa-home" aria-hidden="true"></span>
+            </button>
+            
+              <button type="button" onclick="location.href='nationalparks-java-pipeline';" class="btn btn-xs btn-transparent" aria-label="Next">
+                <span class="fas fa-arrow-right" aria-hidden="true"></span>
+              </button>
+            
+          </div>
+          <!-- Title -->
+          
+            <h1 class="title">Application Health</h1>
+          
+          <!-- Content -->
+          <div class="sect1">
+<h2 id="_background_readiness_and_liveness_probes">Background: Readiness and Liveness Probes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As we have seen before in the UI via warnings, there is a concept of application
+health checks in OpenShift. These come in two flavors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Readiness probe</p>
+</li>
+<li>
+<p>Liveness probe</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>From the
+<a href="https://docs.openshift.com/container-platform/latest/applications/application-health.html">Application
+Health</a> section of the documentation, we see the definitions:</p>
+</div>
+<div class="dlist glossary">
+<dl>
+<dt>Liveness Probe</dt>
+<dd>
+<p>A liveness probe checks if the container in which it is configured is still
+running. If the liveness probe fails, the kubelet kills the container, which
+will be subjected to its restart policy. Set a liveness check by configuring
+the <code>template.spec.containers.livenessprobe</code> stanza of a pod configuration.</p>
+</dd>
+<dt>Readiness Probe</dt>
+<dd>
+<p>A readiness probe determines if a container is ready to service requests. If
+the readiness probe fails a container, the endpoints controller ensures the
+container has its IP address removed from the endpoints of all services. A
+readiness probe can be used to signal to the endpoints controller that even
+though a container is running, it should not receive any traffic from a proxy.
+Set a readiness check by configuring the
+<code>template.spec.containers.readinessprobe</code> stanza of a pod configuration.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>It sounds complicated, but it really isn&#8217;t. We will use the web console to add
+these probes to our <code>nationalparks</code> application.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercise_add_health_checks">Exercise: Add Health Checks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As we are going to be implementing a realistic CI/CD pipeline, we will be doing
+some testing of the "development" version of the application. However, in order
+to test the app, it must be ready. This is where OpenShift&#8217;s application health
+features come in very handy.</p>
+</div>
+<div class="paragraph">
+<p>We are going to add both a readiness and liveness probe to the existing
+<code>nationalparks</code> deployment. This will ensure that OpenShift does not add any
+instances to the service until they pass the readiness checks, and will ensure
+that unhealthy instances are restarted (if they fail the liveness checks).</p>
+</div>
+<div class="paragraph">
+<p>From the <strong>Topology</strong> view, click <code>nationalparks</code>. On the side panel, click the <strong>Actions</strong> dropdown menu and the select <strong>Add Health Checks</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nationalparks-application-health-menu.png" alt="Add Health Checks">
+</div>
+</div>
+<div class="paragraph">
+<p>Click to <strong>Add Readiness Probe</strong> and add in <strong>Path</strong> field:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlight"><code>/ws/healthz/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Leave all default settings like <strong>Port</strong> 8080 and <strong>Type</strong> HTTP GET. Click the little bottom-right confirmation gray tick to confirm:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nationalparks-application-health-settings.png" alt="Add Readiness and Liveness Probe">
+</div>
+</div>
+<div class="paragraph">
+<p>Repeat the same procedure for Liveness Probe, click to <strong>Add Liveness Probe</strong> and add in <strong>Path</strong> field:</p>
+</div>
+<div class="listingblock copypaste">
+<div class="content">
+<pre class="highlight"><code>/ws/healthz/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Leave all default settings like <strong>Port</strong> 8080 and <strong>Type</strong> HTTP GET. Click the little bottom-right confirmation gray tick to confirm.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Note the trailing slash in the URL
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Finally confirm all new changes clicking to <strong>Add</strong>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nationalparks-application-health-add.png" alt="Add Probes">
+</div>
+</div>
+<div class="paragraph">
+<p>You will notice that these changes caused a new deployment&#8201;&#8212;&#8201;they counted as a
+configuration change.</p>
+</div>
+</div>
+</div>
+          <!-- Bottom Navigation -->
+          <div class="page-meta clearfix">
+            
+              
+                <input type="button" class="btn btn-lg btn-primary float-right" onclick="location.href='nationalparks-java-pipeline';" value="Continue" />
+              
+            
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+  </footer>
+  <!-- Javascript-->
+  <script src="js/workshop.js"></script>
+  <script src="js/workshop-asciidoc.js"></script>
+</body>
+</html>
